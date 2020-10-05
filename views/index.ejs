@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style/main.css">
     <title>Document</title>
 </head>
 <body>
-    <form action="/" method="POST">
+    <form action="/" method="POST" id="vorm">
         <select name="country">
             <option value="Estonia">Estonia</option>
             <option value="Latvia">Latvia</option>
@@ -15,13 +16,59 @@
         </select>
         <button type="submit">Vali</button>
         </form>
-
-        <% for (let i=0; i<data.lenght;i++){%>
-            <table>
+        <h1><%=country.name%></h1>
+        <%if(country){%>
+            <table id="country">
                 <tr>
-                    <td><%= data.name%></td>
+                    <th>Top Level Domain</th>
+                    <td><%=country.topLevelDomain%></td>
                 </tr>
-
+                <tr>
+                    <th>Calling Codes</th>
+                    <td><%=country.callingCodes%></td>
+                </tr>
+                <tr>
+                    <th>Capital</th>
+                    <td><%=country.capital%></td>
+                </tr>
+                <tr>
+                    <th>Region</th>
+                    <td><%=country.region%></td>
+                </tr>
+                <tr>
+                    <th>Subregion</th>
+                    <td><%=country.subregion%></td>
+                </tr>
+                <tr>
+                    <th>Population</th>
+                    <td><%=country.population%></td>
+                </tr>
+                <tr>
+                    <th>Timezones</th>
+                    <td><%=country.timezones%></td>
+                </tr>
+                <tr>
+                    <th>Languages</th>
+                    <td><%=country['languages']['name']%></td>
+                    <!--<td><%- JSON.stringify(country['languages']["name"])%></td>-->
+                </tr>
+                <tr>
+                    <th>Currency code</th>
+                    <td><%=country.currencies%></td>
+                </tr>
+                <tr>
+                    <th>Currency name</th>
+                    <td><%=country.currencies%></td>
+                </tr>
+                <tr>
+                    <th>Currency symbol</th>
+                    <td><%=country.currencies%></td>
+                </tr>
             </table>
-        <%}%>
+                <img src=<%=country.flag %> width="500" height="300">
+                <%};%>
+                    
+                     
+    
+        
 </html>
