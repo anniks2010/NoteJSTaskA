@@ -18,11 +18,11 @@ app.get("/", function(req, res){
 app.post('/',(req, res)=>{
     let country=req.body.country;
     let url=`https://restcountries.eu/rest/v2/name/${country}?fullText=true`;
-    console.log(country);
+    //console.log(country);
     
     axios.get(url).
     then(function(response){
-        console.log(response.country);
+        console.log(response.data[0]);
         let countryObjects=response.data[0];
         res.render('index.ejs',{country:countryObjects});
 
